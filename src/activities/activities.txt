@@ -52,6 +52,7 @@ family
 family_find_relative
 fifteen
 find_the_day
+flip_cards
 followline
 football
 geo-country
