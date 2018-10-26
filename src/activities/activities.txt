@@ -35,6 +35,7 @@ clockgame
 color_mix
 color_mix_light
 colors
+constellations
 crane
 details
 digital_electricity
