@@ -303,6 +303,7 @@ function createWord()
             word = wordComponent.createObject( items.background,
                 {
                     "text": text,
+                    "mode": items.ourActivity.getMode(),
                     "dominoValues": items.ourActivity.getDominoValues(text),
                     // assume x=width-25px for now, Word auto-adjusts onCompleted():
                     "x": Math.random() * (items.main.width - 25),

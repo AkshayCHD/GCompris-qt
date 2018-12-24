@@ -37,6 +37,8 @@ ActivityBase {
 
     property bool uppercaseOnly: false
 
+    property string activityName: "gletters"
+
     /* mode of the activity, "letter" (gletters) or "word" (wordsgame):*/
     property string mode: "letter"
 
@@ -74,7 +76,10 @@ ActivityBase {
         property string locale: "system"
         
         Component.onCompleted: {
-            dialogActivityConfig.getInitialConfiguration()
+            if (activity.activityName == "gletters")
+                dialogActivityConfig.getInitialConfiguration()
+            else if (activity.activityName == "smallnumbers2")
+                smallDialogActivityConfig.getInitialConfiguration()
             activity.start.connect(start)
             activity.stop.connect(stop)
         }
@@ -218,9 +223,15 @@ ActivityBase {
             onNextLevelClicked: Activity.nextLevel()
             onHomeClicked: activity.home()
             onConfigClicked: {
-                dialogActivityConfig.active = true
-                dialogActivityConfig.setDefaultValues()
-                displayDialog(dialogActivityConfig)
+                if (activity.activityName == "gletters") {
+                    dialogActivityConfig.active = true
+                    dialogActivityConfig.setDefaultValues()
+                    displayDialog(dialogActivityConfig)
+                } else {
+                    smallDialogActivityConfig.active = true
+                    smallDialogActivityConfig.setDefaultValues()
+                    displayDialog(smallDialogActivityConfig)
+                }
             }
         }
 
